@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:29 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/03 17:00:31 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/04 13:33:04 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ int	main(void)
 		if (input == "ADD")
 		{
 			person = add_person();
-			list.people[i] = person;
-			i++;
-			if (size < 8)
-				size++;
-			if (i == 8)
-				i = 0;
+			if (!person.check_input())
+			{
+				list.people[i] = person;
+				i++;
+				if (size < 8)
+					size++;
+				if (i == 8)
+					i = 0;
+			}
 		}
 		else if (input == "SEARCH")
 			search_person(list, size);
@@ -46,12 +49,15 @@ std::string	print_menu(void)
 {
 	std::string	input;
 
-	std::cout << BANNER << std::endl;
+	std::cout << BANNER << std::endl << std::endl;
 	std::cout << "Options:" << std::endl;
 	std::cout << "[0] ADD" << std::endl;
 	std::cout << "[1] SEARCH" << std::endl;
-	std::cout << "[2] EXIT" << std::endl;
+	std::cout << "[2] EXIT" << std::endl << std::endl;
+	std::cout << "Enter option: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		std::exit(0);
 	return (input);
 }
 
@@ -65,17 +71,10 @@ Contact	add_person(void)
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << msgs[i];
-		std::cin >> input;
-		if (i == 0)
-			person.first_name = input;
-		else if (i == 1)
-			person.last_name = input;
-		else if (i == 2)
-			person.nickname = input;
-		else if (i == 3)
-			person.phone_number = input;
-		else if (i == 4)
-			person.darkest_secret = input;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			std::exit(0);
+		person.change_value(input, i);
 	}
 	std::cout << std::endl;
 	return (person);
@@ -83,9 +82,10 @@ Contact	add_person(void)
 
 void	search_person(PhoneBook list, int size)
 {
-	int	i, input;
+	int			i = 0, nbr = 0;
+	std::string	input;
 
-	i = 0;
+	std::cout << std::endl;
 	print_value("Index");
 	std::cout << "|";
 	print_value("Firstname");
@@ -97,32 +97,47 @@ void	search_person(PhoneBook list, int size)
 	for (i = 0; i < size; i++)
 		print_person(list.people[i], i);
 	std::cout << "Enter the index of the Contact: ";
-	std::cin >> input;
-	if (input < size)
-		print_full_contact(list.people[input]);
+	std::getline(std::cin, input);
+	if (std::cin.eof())
+		std::exit(0);
+	if (!input.empty() && check_for_nbr(input))
+	{
+		try
+		{
+			nbr = std::stoi(input);
+			if (nbr < size)
+				print_full_contact(list.people[nbr]);
+			else
+				std::cerr << "Index is out of range" << std::endl;
+		}
+		catch (std::out_of_range)
+		{
+			std::cerr << "Nbr is not in range" << std::endl;
+		}
+	}
 	else
-		std::cerr << "index is out of range" << std::endl;
+		std::cerr << "Invalide input" << std::endl;
 }
 
 void	print_person(Contact person, int i)
 {
 	std::cout << std::right << std::setfill(' ') << std::setw(10) << i << "|";
-	print_value(person.first_name);
+	print_value(person.get_first());
 	std::cout << "|";
-	print_value(person.last_name);
+	print_value(person.get_last());
 	std::cout << "|";
-	print_value(person.nickname);
+	print_value(person.get_nick());
 	std::cout << std::endl;
 }
 
 void	print_full_contact(Contact person)
 {
 	std::cout << std::endl;
-	std::cout << "First Name: " << person.first_name << std::endl;
-	std::cout << "Last Name: " << person.last_name << std::endl;
-	std::cout << "Nickname: " << person.nickname << std::endl;
-	std::cout << "Phonenumber: " << person.phone_number << std::endl;
-	std::cout << "Darkest Secret: " << person.darkest_secret << std::endl;
+	std::cout << "First Name: " << person.get_first() << std::endl;
+	std::cout << "Last Name: " << person.get_last() << std::endl;
+	std::cout << "Nickname: " << person.get_nick() << std::endl;
+	std::cout << "Phonenumber: " << person.get_nbr() << std::endl;
+	std::cout << "Darkest Secret: " << person.get_secret() << std::endl;
 	std::cout << std::endl;
 }
 
@@ -132,4 +147,14 @@ void	print_value(std::string value)
 		std::cout << value.substr(0, 9) << ".";
 	else
 		std::cout << std::right << std::setfill(' ') << std::setw(10) << value;
+}
+
+int	check_digit(char c)
+{
+	return (std::isdigit(c));
+}
+
+int	check_for_nbr(std::string input)
+{
+	return (std::all_of(input.begin(), input.end(), check_digit));
 }

@@ -1,0 +1,20 @@
+NAME = account
+CC = c++
+CFLAGS = -Wall -Werror -Wextra -std=C++98
+SRCS = tests.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+all:		$(NAME)
+
+clean:
+			rm -f *.o
+
+fclean:		clean
+			rm -f $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
