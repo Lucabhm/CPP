@@ -16,8 +16,6 @@
 //                               Account Class                                //
 // ************************************************************************** //
 
-#include <iostream>
-
 class Account {
 
 
@@ -25,69 +23,19 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void ){return (_nbAccounts);}
-	static int	getTotalAmount( void ){return (_totalAmount);}
-	static int	getNbDeposits( void ){return (_totalNbDeposits);}
-	static int	getNbWithdrawals( void ){return (_totalNbWithdrawals);}
-	static void	displayAccountsInfos( void )
-	{
-		std::cout << "index:" << _nbAccounts << ";";
-		std::cout << "total:" << _totalAmount << ";";
-		std::cout << "deposits:" << _totalNbDeposits << ";";
-		std::cout << "withdrawals:" << _totalNbWithdrawals << std::endl;
-	}
+	static int	getNbAccounts( void );
+	static int	getTotalAmount( void );
+	static int	getNbDeposits( void );
+	static int	getNbWithdrawals( void );
+	static void	displayAccountsInfos( void );
 
-	Account( int initial_deposit )
-	{
-		_nbAccounts = 0;
-		_totalAmount = 0;
-		_totalNbWithdrawals = 0;
-		_accountIndex = 0;
-		_amount = 0;
-		_nbDeposits = 0;
-		_nbWithdrawals = 0;
-		_totalNbDeposits = initial_deposit;
-	}
+	Account( int initial_deposit );
 	~Account( void );
 
-	void	makeDeposit( int deposit )
-	{
-		std::cout << "index:" << _accountIndex << ";";
-		std::cout << "p_amount:" << _amount << ";";
-		std::cout << "deposit:" << deposit << ";";
-		_amount += deposit;
-		std::cout << "amount:" << _amount << ";";
-		_nbDeposits++;
-		std::cout << "nb_deposits:" << _nbDeposits << std::endl;
-		_totalNbDeposits++;
-	}
-	bool	makeWithdrawal( int withdrawal )
-	{
-		std::cout << "index:" << _accountIndex << ";";
-		std::cout << "p_amount:" << _amount << ";";
-		if (withdrawal < _amount)
-		{
-			_amount -= withdrawal;
-			std::cout << "amount:" << _amount << ";";
-			_nbWithdrawals++;
-			std::cout << "nb_withdrawals:" << _nbWithdrawals << std::endl;
-			_totalNbWithdrawals++;
-			return (true);
-		}
-		else
-		{
-			std::cout << "withdrawal:refused" << std::endl;
-			return (false);
-		}
-	}
-	// int		checkAmount( void ) const;
-	void	displayStatus( void ) const
-	{
-		std::cout << "index:" << _accountIndex << ";";
-		std::cout << "amount:" << _amount << ";";
-		std::cout << "deposits:" << _nbDeposits << ";";
-		std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
-	}
+	void	makeDeposit( int deposit );
+	bool	makeWithdrawal( int withdrawal );
+	int		checkAmount( void ) const;
+	void	displayStatus( void ) const;
 
 
 private:
@@ -97,7 +45,7 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
-	// static void	_displayTimestamp( void );
+	static void	_displayTimestamp( void );
 
 	int				_accountIndex;
 	int				_amount;
@@ -107,8 +55,6 @@ private:
 	Account( void );
 
 };
-
-
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //

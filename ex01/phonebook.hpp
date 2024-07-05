@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:47 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/04 13:15:19 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/05 13:32:20 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void		print_person(Contact person, int i);
 void		print_full_contact(Contact person);
 void		print_value(std::string value);
 void		search_person(PhoneBook list, int size);
-int			check_digit(char c);
 int			check_for_nbr(std::string input);
 
 # define BANNER \

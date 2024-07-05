@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:18:33 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/01 17:02:49 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/05 13:12:10 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
 #include <cctype>
-#include <algorithm>
 
 int	main(int argc, char **argv)
 {

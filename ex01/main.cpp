@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:29 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/04 13:33:04 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/05 13:32:12 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,12 +149,12 @@ void	print_value(std::string value)
 		std::cout << std::right << std::setfill(' ') << std::setw(10) << value;
 }
 
-int	check_digit(char c)
-{
-	return (std::isdigit(c));
-}
-
 int	check_for_nbr(std::string input)
 {
-	return (std::all_of(input.begin(), input.end(), check_digit));
+	for (std::string::iterator b = input.begin(); b != input.end(); b++)
+	{
+		if (!std::isdigit(*b))
+			return (0);
+	}
+	return (1);
 }

@@ -1,7 +1,7 @@
 NAME = account
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=C++98
-SRCS = tests.cpp
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+SRCS = tests.cpp Account.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):	$(OBJS)
