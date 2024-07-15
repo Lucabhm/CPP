@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:47 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/05 13:32:20 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/07/15 15:22:14 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,38 +27,13 @@ class	Contact
 		std::string	phone_number;
 		std::string	darkest_secret;
 	public:
-		std::string	get_first(){return (first_name);}
-		std::string	get_last(){return (last_name);}
-		std::string	get_nick(){return (nickname);}
-		std::string	get_nbr(){return (phone_number);}
-		std::string	get_secret(){return (darkest_secret);}
-		void		change_value(std::string value, int i)
-		{
-			if (i == 0)
-				first_name = value;
-			else if (i == 1)
-				last_name = value;
-			else if (i == 2)
-				nickname = value;
-			else if (i == 3)
-				phone_number = value;
-			else if (i == 4)
-				darkest_secret = value;
-		}
-		int			check_input()
-		{
-			if (first_name.empty())
-				return (1);
-			if (last_name.empty())
-				return (1);
-			if (nickname.empty())
-				return (1);
-			if (phone_number.empty())
-				return (1);
-			if (darkest_secret.empty())
-				return (1);
-			return (0);
-		}
+		std::string	get_first(void);
+		std::string	get_last();
+		std::string	get_nick();
+		std::string	get_nbr();
+		std::string	get_secret();
+		void		change_value(std::string value, int i);
+		int			check_input();
 };
 
 class	PhoneBook

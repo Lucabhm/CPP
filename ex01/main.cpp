@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:29 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/05 13:32:12 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/07/15 15:16:16 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,3 +158,4 @@ int	check_for_nbr(std::string input)
 	}
 	return (1);
 }
+
