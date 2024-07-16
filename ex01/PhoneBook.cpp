@@ -6,15 +6,17 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:17:58 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/16 12:06:05 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/16 12:10:15 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 Contact::Contact(){}
-
 Contact::~Contact(){}
+
+PhoneBook::PhoneBook(){}
+PhoneBook::~PhoneBook(){}
 
 std::string	Contact::get_first(void){return (first_name);}
 std::string	Contact::get_last(void){return (last_name);}

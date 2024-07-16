@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:47 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/16 12:05:52 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/16 12:09:23 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class	Contact
 class	PhoneBook
 { 
 	public:
+		PhoneBook();
+		~PhoneBook();
 		class Contact people[8];
 };
 
