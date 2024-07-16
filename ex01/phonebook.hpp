@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:16:47 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/15 15:22:14 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/16 12:05:52 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class	Contact
 		std::string	phone_number;
 		std::string	darkest_secret;
 	public:
+		Contact();
+		~Contact();
 		std::string	get_first(void);
 		std::string	get_last();
 		std::string	get_nick();

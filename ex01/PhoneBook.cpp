@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:17:58 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/15 15:25:26 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/07/16 12:06:05 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+Contact::Contact(){}
+
+Contact::~Contact(){}
 
 std::string	Contact::get_first(void){return (first_name);}
 std::string	Contact::get_last(void){return (last_name);}
