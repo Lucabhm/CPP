@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 10:16:47 by lbohm             #+#    #+#             */
-/*   Updated: 2024/07/16 12:09:23 by lbohm            ###   ########.fr       */
+/*   Created: 2024/07/17 10:25:06 by lbohm             #+#    #+#             */
+/*   Updated: 2024/07/17 10:25:14 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Contact
 	public:
 		Contact();
 		~Contact();
-		std::string	get_first(void);
+		std::string	get_first();
 		std::string	get_last();
 		std::string	get_nick();
 		std::string	get_nbr();
